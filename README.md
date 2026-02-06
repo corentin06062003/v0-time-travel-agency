@@ -1,3 +1,9 @@
+### 👥 Équipe de Développement
+- **Corentin GESSE--ENTRESSANGLE**
+- **Naël Benhiba**
+
+Projet réalisé dans le cadre du M2 Digital & IA
+
 # TimeTravel Agency - Agence de Voyage Temporel
 
 Une application web interactive pour une agence de voyage temporel fictive, créée avec les technologies modernes et l'intelligence artificielle.
@@ -68,6 +74,12 @@ TimeTravel Agency est une plateforme immersive qui permet aux utilisateurs d'exp
 - **Textes et descriptions** : Générés avec IA pour cohérence thématique
 - **Structure de données** : Conçue avec assistance IA pour 10 destinations
 - **UX patterns** : Recommandations d'interfaces modernes
+
+### Chatbot IA
+- **Modèle** : Llama 3.3 70B Versatile via Groq API
+- **Framework** : Vercel AI SDK (@ai-sdk/react)
+- **Personna** : Chronos, assistant voyage temporel
+- **System prompt** : Personnalisé pour l'univers TimeTravel Agency
 
 ### Assets Visuels
 - **Vidéo hero** : `video_capcut.mp4` (fournie)
@@ -140,7 +152,10 @@ npm start
 
 ### Variables d'environnement
 ```env
-# Configuration pour le chatbot IA (optionnel)
+# API pour le chatbot Chronos
+GROQ_API_KEY=votre_clé_api_groq
+
+# Configuration optionnelle pour autres services
 NEXT_PUBLIC_MISTRAL_API_KEY=votre_clé_api
 ```
 
@@ -216,7 +231,5 @@ Projet pédagogique - M1/M2 Digital & IA
 - Design inspiré des agences de voyage premium
 - UX patterns modernes et accessibles
 - Science-fiction et voyages temporels
-
----
 
 **Développé avec ❤️ et 🤖 pour l'apprentissage du développement web moderne.**
