@@ -1,8 +1,12 @@
 import { streamText, convertToModelMessages } from "ai"
-import { createGroq } from "@ai-sdk/groq"
+import { createOpenAICompatible } from "@ai-sdk/openai-compatible"
 
-const groq = createGroq({
-  apiKey: process.env.GROQ_API_KEY,
+const groq = createOpenAICompatible({
+  name: "groq",
+  baseURL: "https://api.groq.com/openai/v1",
+  headers: {
+    Authorization: `Bearer ${process.env.GROQ_API_KEY}`,
+  },
 })
 
 const SYSTEM_PROMPT = `Tu es Chronos, l'assistant IA de TimeTravel Agency, la premiere agence de voyage temporel au monde.
@@ -38,24 +42,19 @@ Regles :
 - Encourage les clients a reserver via la page de reservation du site
 - Tu peux repondre aux questions frequentes sur la securite temporelle, les protocoles de voyage, et les conditions de reservation`
 
-function getModel() {
-  return groq("llama-3.3-70b-versatile")
-}
-
 export async function POST(req: Request) {
   try {
     const { messages } = await req.json()
 
     const result = streamText({
-      model: getModel(),
+      model: groq.chatModel("llama-3.3-70b-versatile"),
       system: SYSTEM_PROMPT,
       messages: await convertToModelMessages(messages),
     })
 
     return result.toUIMessageStreamResponse()
   } catch (error: unknown) {
-    const message =
-      error instanceof Error ? error.message : "Unknown error"
+    const message = error instanceof Error ? error.message : "Unknown error"
 
     if (
       message.includes("API key") ||
