@@ -1,11 +1,7 @@
 import { streamText, convertToModelMessages } from "ai"
+import { openai } from "@ai-sdk/openai"
 
-export async function POST(req: Request) {
-  const { messages } = await req.json()
-
-  const result = streamText({
-    model: "openai/gpt-4o-mini",
-    system: `Tu es Chronos, l'assistant IA de TimeTravel Agency, la premiere agence de voyage temporel au monde.
+const SYSTEM_PROMPT = `Tu es Chronos, l'assistant IA de TimeTravel Agency, la premiere agence de voyage temporel au monde.
 
 Tu aides les clients a decouvrir les destinations et a planifier leur voyage temporel.
 
@@ -36,9 +32,46 @@ Regles :
 - Si on te pose des questions hors sujet, ramene poliment la conversation vers le voyage temporel
 - Suggere des destinations en fonction des preferences du client
 - Encourage les clients a reserver via la page de reservation du site
-- Tu peux repondre aux questions frequentes sur la securite temporelle, les protocoles de voyage, et les conditions de reservation`,
-    messages: await convertToModelMessages(messages),
-  })
+- Tu peux repondre aux questions frequentes sur la securite temporelle, les protocoles de voyage, et les conditions de reservation`
 
-  return result.toUIMessageStreamResponse()
+function getModel() {
+  if (process.env.OPENAI_API_KEY) {
+    return openai("gpt-4o-mini")
+  }
+  return "openai/gpt-4o-mini" as const
+}
+
+export async function POST(req: Request) {
+  try {
+    const { messages } = await req.json()
+
+    const result = streamText({
+      model: getModel(),
+      system: SYSTEM_PROMPT,
+      messages: await convertToModelMessages(messages),
+    })
+
+    return result.toUIMessageStreamResponse()
+  } catch (error: unknown) {
+    const message =
+      error instanceof Error ? error.message : "Unknown error"
+
+    if (
+      message.includes("credit card") ||
+      message.includes("customer_verification_required")
+    ) {
+      return Response.json(
+        {
+          error:
+            "Le service IA necessite une configuration. Veuillez ajouter une cle API OpenAI dans les variables d'environnement (OPENAI_API_KEY), ou activer les credits gratuits du AI Gateway Vercel.",
+        },
+        { status: 503 },
+      )
+    }
+
+    return Response.json(
+      { error: "Une erreur est survenue. Veuillez reessayer." },
+      { status: 500 },
+    )
+  }
 }

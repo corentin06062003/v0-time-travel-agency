@@ -6,7 +6,7 @@ import { useChat } from "@ai-sdk/react"
 import { DefaultChatTransport } from "ai"
 import { useState, useRef, useEffect } from "react"
 import Link from "next/link"
-import { Send, ArrowLeft, Bot, User, Sparkles } from "lucide-react"
+import { Send, ArrowLeft, Bot, User, Sparkles, AlertTriangle } from "lucide-react"
 
 const transport = new DefaultChatTransport({ api: "/api/chat" })
 
@@ -26,7 +26,7 @@ function getMessageText(message: { parts?: Array<{ type: string; text?: string }
 }
 
 export default function ChatPage() {
-  const { messages, sendMessage, status } = useChat({ transport })
+  const { messages, sendMessage, status, error } = useChat({ transport })
   const [input, setInput] = useState("")
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
@@ -155,6 +155,20 @@ export default function ChatPage() {
                   <div className="w-2 h-2 rounded-full bg-muted-foreground animate-bounce" style={{ animationDelay: "150ms" }} />
                   <div className="w-2 h-2 rounded-full bg-muted-foreground animate-bounce" style={{ animationDelay: "300ms" }} />
                 </div>
+              </div>
+            </div>
+          )}
+
+          {error && (
+            <div className="flex gap-3 mt-6">
+              <div className="w-8 h-8 rounded-full bg-destructive/10 flex items-center justify-center shrink-0">
+                <AlertTriangle className="h-4 w-4 text-destructive" />
+              </div>
+              <div className="max-w-[80%] rounded-xl px-4 py-3 bg-destructive/10 border border-destructive/20 text-foreground">
+                <p className="text-sm font-medium mb-1">Erreur de connexion</p>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  {"Le service IA n'est pas disponible pour le moment. Veuillez verifier que la cle API OpenAI (OPENAI_API_KEY) est configuree dans les variables d'environnement du projet, ou activez les credits gratuits du AI Gateway Vercel."}
+                </p>
               </div>
             </div>
           )}
