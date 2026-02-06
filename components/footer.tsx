@@ -32,6 +32,9 @@ export function Footer() {
               <Link href="#about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Notre histoire
               </Link>
+              <Link href="/quiz" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                Quiz
+              </Link>
               <Link href="/chat" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                 Assistant IA
               </Link>

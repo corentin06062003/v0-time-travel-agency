@@ -1,5 +1,6 @@
 "use client"
 
+import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronDown } from "lucide-react"
@@ -7,17 +8,19 @@ import { ChevronDown } from "lucide-react"
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image */}
+      {/* Background video */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/hero-bg.jpg"
-          alt=""
-          fill
-          className="object-cover"
-          priority
+        <video
+          src="/video_capcut.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover"
+          preload="metadata"
         />
-        <div className="absolute inset-0 bg-background/70" />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-transparent to-background" />
+        <div className="absolute inset-0 bg-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/80" />
       </div>
 
       {/* Animated particles (decorative) */}
@@ -30,18 +33,43 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <p className="text-primary uppercase tracking-[0.3em] text-sm mb-6 animate-fade-in opacity-0" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
+      <motion.div 
+        className="relative z-10 text-center px-6 max-w-4xl mx-auto"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <motion.p 
+          className="text-primary uppercase tracking-[0.3em] text-sm mb-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
           Agence de voyage temporel
-        </p>
-        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-foreground leading-tight text-balance animate-slide-up opacity-0" style={{ animationDelay: "0.4s" }}>
+        </motion.p>
+        <motion.h1 
+          className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-foreground leading-tight text-balance"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+        >
           Explorez le temps,{" "}
           <span className="text-primary">vivez l{"'"}histoire</span>
-        </h1>
-        <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed animate-slide-up opacity-0" style={{ animationDelay: "0.7s" }}>
+        </motion.h1>
+        <motion.p 
+          className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.8 }}
+        >
           {"De l'Egypte des pharaons au Tokyo futuriste de 2150, choisissez votre epoque et embarquez pour un voyage inoubliable a travers le temps."}
-        </p>
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up opacity-0" style={{ animationDelay: "1s" }}>
+        </motion.p>
+        <motion.div 
+          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.8 }}
+        >
           <Link
             href="#destinations"
             className="bg-primary text-primary-foreground px-8 py-4 rounded-lg text-base font-medium hover:bg-primary/90 transition-all duration-300 hover:scale-105"
@@ -54,13 +82,17 @@ export function Hero() {
           >
             Parler a notre assistant
           </Link>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-float">
+      <motion.div 
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        animate={{ y: [0, 8, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+      >
         <ChevronDown className="h-6 w-6 text-muted-foreground" />
-      </div>
+      </motion.div>
     </section>
   )
 }

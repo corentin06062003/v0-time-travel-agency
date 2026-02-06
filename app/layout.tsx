@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 
 import './globals.css'
+import { ChatBubble } from "@/components/chat-bubble"
 
 const playfair = Playfair_Display({
   subsets: ['latin'],
@@ -34,6 +35,7 @@ export default function RootLayout({
         className={`${playfair.variable} ${inter.variable} font-sans antialiased`}
       >
         {children}
+        <ChatBubble />
       </body>
     </html>
   )

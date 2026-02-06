@@ -1,0 +1,334 @@
+{
+  "travels": [
+    {
+      "id": "rome-antique",
+      "title": "Rome Antique - L'Âge d'Or de l'Empire",
+      "period": "27 av. J.-C. - 117 ap. J.-C.",
+      "description": "Plongez au cœur de l'Empire romain à son apogée. Vivez la grandeur du Colisée, marchez sur le Forum romain et assistez aux jeux du cirque. Une immersion totale dans la vie quotidienne des Romains de l'Antiquité.",
+      "price": 3890,
+      "duration": 7,
+      "location": "Rome, Italie Antique",
+      "highlights": [
+        "Visite privée du Colisée",
+        "Dîner dans une domus patricienne",
+        "Participation aux jeux du cirque",
+        "Exploration des bains publics de Caracalla",
+        "Rencontre avec des sénateurs romains"
+      ],
+      "images": [
+        "/images/rome-antique.jpg",
+        "/images/rome-colisee.jpg",
+        "/images/rome-forum.jpg",
+        "/images/rome-bains.jpg"
+      ],
+      "category": "culture",
+      "difficulty": "modérée",
+      "groupSize": "8-12 personnes",
+      "included": [
+        "Transport temporel aller-retour",
+        "Hébergement dans une insula romaine",
+        "Repas typiques romains",
+        "Guide historique expert",
+        "Tenue d'époque fournie"
+      ],
+      "tags": ["culture", "ancient", "urban", "monuments"]
+    },
+    {
+      "id": "paris-belle-epoque",
+      "title": "Paris Belle Époque - La Lumière de 1900",
+      "period": "1889 - 1914",
+      "description": "Revivez l'âge d'or parisien, entre Tour Eiffel, expositions universelles et effervescence artistique. Découvrez Montmartre bohème, les cabarets de Pigalle et l'élégance des grands boulevards.",
+      "price": 4250,
+      "duration": 6,
+      "location": "Paris, France",
+      "highlights": [
+        "Ascension de la Tour Eiffel (1889)",
+        "Soirée au Moulin Rouge",
+        "Visite de l'Exposition Universelle",
+        "Rencontre avec des artistes à Montmartre",
+        "Dîner dans un restaurant parisien typique"
+      ],
+      "images": [
+        "/images/paris-1889.jpg",
+        "/images/paris-eiffel.jpg",
+        "/images/paris-moulin.jpg",
+        "/images/paris-montmartre.jpg"
+      ],
+      "category": "culture",
+      "difficulty": "facile",
+      "groupSize": "10-15 personnes",
+      "included": [
+        "Transport temporel aller-retour",
+        "Hébergement dans un hôtel particulier",
+        "Repas gastronomiques parisiens",
+        "Billets pour spectacles et expositions",
+        "Tenue d'époque fournie"
+      ],
+      "tags": ["culture", "modern", "urban", "art"]
+    },
+    {
+      "id": "egypte-pharaons",
+      "title": "Égypte des Pharaons - Au Temps des Pyramides",
+      "period": "2589 - 2504 av. J.-C.",
+      "description": "Explorez l'Égypte à l'époque de la construction des grandes pyramides. Assistez aux rituels sacrés, naviguez sur le Nil et découvrez les mystères de la civilisation égyptienne à son apogée.",
+      "price": 5200,
+      "duration": 8,
+      "location": "Gizeh & Vallée du Nil, Égypte",
+      "highlights": [
+        "Visite des chantiers des pyramides",
+        "Navigation sur le Nil en felouque",
+        "Exploration de la Vallée des Rois",
+        "Participation à des rituels religieux",
+        "Rencontre avec des artisans égyptiens"
+      ],
+      "images": [
+        "/images/egypt.jpg",
+        "/images/egypt-pyramides.jpg",
+        "/images/egypt-nil.jpg",
+        "/images/egypt-vallee.jpg"
+      ],
+      "category": "adventure",
+      "difficulty": "modérée",
+      "groupSize": "6-10 personnes",
+      "included": [
+        "Transport temporel aller-retour",
+        "Hébergement dans un temple égyptien",
+        "Repas traditionnels égyptiens",
+        "Guide égyptologue expert",
+        "Tenue d'époque fournie"
+      ],
+      "tags": ["adventure", "ancient", "nature", "monuments"]
+    },
+    {
+      "id": "florence-renaissance",
+      "title": "Florence Renaissance - Le Berceau des Arts",
+      "period": "1480 - 1520",
+      "description": "Immergez-vous dans la Florence de Léonard de Vinci et Michel-Ange. Visitez les ateliers d'artistes, assistez à des créations d'œuvres maîtres et découvrez l'innovation qui a changé le monde.",
+      "price": 4750,
+      "duration": 7,
+      "location": "Florence, Italie",
+      "highlights": [
+        "Visite de l'atelier de Léonard de Vinci",
+        "Rencontre avec Michel-Ange",
+        "Exploration des Médicis",
+        "Participation à des cours de peinture",
+        "Visite du Dôme en construction"
+      ],
+      "images": [
+        "/images/florence.jpg",
+        "/images/florence-atelier.jpg",
+        "/images/florence-medicis.jpg",
+        "/images/florence-dome.jpg"
+      ],
+      "category": "culture",
+      "difficulty": "facile",
+      "groupSize": "8-12 personnes",
+      "included": [
+        "Transport temporel aller-retour",
+        "Hébergement dans un palais florentin",
+        "Repas toscans traditionnels",
+        "Cours d'art avec des maîtres",
+        "Tenue de la Renaissance fournie"
+      ],
+      "tags": ["culture", "renaissance", "urban", "art"]
+    },
+    {
+      "id": "safari-prehistorique",
+      "title": "Safari Préhistorique - La Terre des Mammouths",
+      "period": "35 000 - 10 000 av. J.-C.",
+      "description": "Une aventure unique au cœur de la Préhistoire. Observez les mammouths laineux dans leur habitat naturel, apprenez les techniques de survie de nos ancêtres et explorez des grottes ornées de peintures rupestres.",
+      "price": 6100,
+      "duration": 9,
+      "location": "Plaines d'Europe préhistorique",
+      "highlights": [
+        "Observation de mammouths laineux",
+        "Apprentissage des techniques de chasse",
+        "Exploration de grottes préhistoriques",
+        "Survie dans la nature sauvage",
+        "Rencontre avec des tribus Cro-Magnon"
+      ],
+      "images": [
+        "/images/cretace.jpg",
+        "/images/cretace-mammouth.jpg",
+        "/images/cretace-grotte.jpg",
+        "/images/cretace-nature.jpg"
+      ],
+      "category": "adventure",
+      "difficulty": "difficile",
+      "groupSize": "4-8 personnes",
+      "included": [
+        "Transport temporel aller-retour",
+        "Équipement de survie préhistorique",
+        "Formation aux techniques ancestrales",
+        "Guide expert en Préhistoire",
+        "Nourriture de chasse et cueillette"
+      ],
+      "tags": ["adventure", "ancient", "nature", "wildlife"]
+    },
+    {
+      "id": "venise-doges",
+      "title": "Venise des Doges - La Sérénissime République",
+      "period": "1400 - 1600",
+      "description": "Découvrez la splendeur de Venise à son apogée. Naviguez sur les canaux, assistez aux réunions du Conseil des Dix et vivez le raffinement d'une des plus puissantes républiques maritimes.",
+      "price": 4950,
+      "duration": 7,
+      "location": "Venise, Italie",
+      "highlights": [
+        "Balade en gondole privée",
+        "Visite du Palais des Doges",
+        "Participation au Carnaval de Venise",
+        "Rencontre avec des marchands vénitiens",
+        "Exploration des îles de la lagune"
+      ],
+      "images": [
+        "/images/venise.jpg",
+        "/images/venise-gondole.jpg",
+        "/images/venise-palais.jpg",
+        "/images/venise-carnaval.jpg"
+      ],
+      "category": "culture",
+      "difficulty": "facile",
+      "groupSize": "10-15 personnes",
+      "included": [
+        "Transport temporel aller-retour",
+        "Hébergement dans un palais vénitien",
+        "Repas gastronomiques vénitiens",
+        "Costumes du Carnaval fournis",
+        "Guide historique expert"
+      ],
+      "tags": ["culture", "renaissance", "urban", "art"]
+    },
+    {
+      "id": "athenes-classique",
+      "title": "Athènes Classique - Le Siècle de Périclès",
+      "period": "447 - 432 av. J.-C.",
+      "description": "Vivez l'âge d'or d'Athènes pendant la construction du Parthénon. Assistez aux représentations théâtrales, participez aux débats philosophiques et découvrez la démocratie athénienne.",
+      "price": 4400,
+      "duration": 6,
+      "location": "Athènes, Grèce Antique",
+      "highlights": [
+        "Visite du chantier du Parthénon",
+        "Représentation au théâtre de Dionysos",
+        "Débats avec Socrate et Platon",
+        "Participation à l'Assemblée démocratique",
+        "Exploration de l'Agora antique"
+      ],
+      "images": [
+        "/images/athenes.jpg",
+        "/images/athenes-parthenon.jpg",
+        "/images/athenes-theatre.jpg",
+        "/images/athenes-agora.jpg"
+      ],
+      "category": "culture",
+      "difficulty": "modérée",
+      "groupSize": "8-12 personnes",
+      "included": [
+        "Transport temporel aller-retour",
+        "Hébergement dans une maison athénienne",
+        "Repas grecs antiques",
+        "Cours de philosophie",
+        "Tenue grecque antique fournie"
+      ],
+      "tags": ["culture", "ancient", "urban", "monuments"]
+    },
+    {
+      "id": "viking-scandinavie",
+      "title": "Expédition Viking - Les Conquérants du Nord",
+      "period": "793 - 1066",
+      "description": "Embarquez pour une expédition viking. Naviguez sur des drakkars, participez à des raids et découvrez la culture guerrière des peuples du Nord à l'âge des Vikings.",
+      "price": 5300,
+      "duration": 8,
+      "location": "Scandinavie & Mer du Nord",
+      "highlights": [
+        "Navigation en drakkar",
+        "Participation à un raid commercial",
+        "Fête Viking avec méad et chants",
+        "Apprentissage des runes",
+        "Exploration de villages vikings"
+      ],
+      "images": [
+        "/images/viking.jpg",
+        "/images/viking-drakkar.jpg",
+        "/images/viking-village.jpg",
+        "/images/viking-fete.jpg"
+      ],
+      "category": "adventure",
+      "difficulty": "difficile",
+      "groupSize": "6-10 personnes",
+      "included": [
+        "Transport temporel aller-retour",
+        "Équipement viking complet",
+        "Formation aux techniques de navigation",
+        "Guide expert en culture viking",
+        "Nourriture et boisson vikings"
+      ],
+      "tags": ["adventure", "ancient", "nature", "wildlife"]
+    },
+    {
+      "id": "tokyo-edo",
+      "title": "Tokyo Edo - La Cité des Shoguns",
+      "period": "1603 - 1868",
+      "description": "Plongez dans le Japon féodal sous le shogunat Tokugawa. Découvrez les samouraïs, les geishas et l'art délicat de la période Edo dans une ville en pleine effervescence culturelle.",
+      "price": 4850,
+      "duration": 7,
+      "location": "Edo (Tokyo), Japon",
+      "highlights": [
+        "Rencontre avec des samouraïs",
+        "Soirée dans une maison de thé",
+        "Visite du château d'Edo",
+        "Apprentissage des arts martiaux",
+        "Exploration du quartier des plaisirs"
+      ],
+      "images": [
+        "/images/tokyo-edo.jpg",
+        "/images/tokyo-chateau.jpg",
+        "/images/tokyo-samourai.jpg",
+        "/images/tokyo-maison-the.jpg"
+      ],
+      "category": "culture",
+      "difficulty": "modérée",
+      "groupSize": "8-12 personnes",
+      "included": [
+        "Transport temporel aller-retour",
+        "Hébergement dans une ryokan",
+        "Repas japonais traditionnels",
+        "Cours de calligraphie",
+        "Tenue traditionnelle fournie"
+      ],
+      "tags": ["culture", "modern", "urban", "art"]
+    },
+    {
+      "id": "maya-yucatan",
+      "title": "Civilisation Maya - Les Secrets du Yucatán",
+      "period": "600 - 900 ap. J.-C.",
+      "description": "Explorez la civilisation maya à son apogée. Découvrez les cités-états, assistez à des cérémonies religieuses et explorez les mystérieuses pyramides de la jungle du Yucatán.",
+      "price": 4650,
+      "duration": 8,
+      "location": "Péninsule du Yucatán, Mésoamérique",
+      "highlights": [
+        "Visite de Chichén Itzá",
+        "Cérémonies religieuses mayas",
+        "Exploration de cités perdues",
+        "Apprentissage de l'astronomie maya",
+        "Rencontre avec des prêtres mayas"
+      ],
+      "images": [
+        "/images/maya.jpg",
+        "/images/maya-chichen.jpg",
+        "/images/maya-cite.jpg",
+        "/images/maya-ceremonie.jpg"
+      ],
+      "category": "adventure",
+      "difficulty": "modérée",
+      "groupSize": "6-10 personnes",
+      "included": [
+        "Transport temporel aller-retour",
+        "Hébergement dans une cité maya",
+        "Repas traditionnels mayas",
+        "Guide expert en civilisation maya",
+        "Tenue cérémonielle fournie"
+      ],
+      "tags": ["adventure", "ancient", "nature", "monuments"]
+    }
+  ]
+}

@@ -17,35 +17,22 @@ import {
   CreditCard,
 } from "lucide-react"
 
-const destinations = [
-  {
-    id: "egypt",
-    title: "Egypte Antique",
-    period: "2500 av. J.-C.",
-    image: "/images/egypt.jpg",
-    duration: "7 jours",
-    price: 12500,
-    description: "Marchez aux cotes des pharaons et decouvrez les mysteres des pyramides.",
-  },
-  {
-    id: "medieval",
-    title: "Europe Medievale",
-    period: "1200 ap. J.-C.",
-    image: "/images/medieval.jpg",
-    duration: "5 jours",
-    price: 9800,
-    description: "Assistez aux tournois de chevaliers et explorez les chateaux forts.",
-  },
-  {
-    id: "tokyo-2150",
-    title: "Tokyo 2150",
-    period: "2150 ap. J.-C.",
-    image: "/images/tokyo-2150.jpg",
-    duration: "4 jours",
-    price: 18200,
-    description: "Plongez dans le futur ultra-technologique de Tokyo.",
-  },
-]
+interface Travel {
+  id: string
+  title: string
+  period: string
+  description: string
+  price: number
+  duration: number
+  location: string
+  highlights: string[]
+  images: string[]
+  category: string
+  difficulty: string
+  groupSize: string
+  included: string[]
+  tags: string[]
+}
 
 export default function BookingPage() {
   const searchParams = useSearchParams()
@@ -58,14 +45,29 @@ export default function BookingPage() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [submitted, setSubmitted] = useState(false)
+  const [destinations, setDestinations] = useState<Travel[]>([])
+  const [loading, setLoading] = useState(true)
 
   const selectedDestination = destinations.find((d) => d.id === selectedDest)
+
+  useEffect(() => {
+    fetch('/data/travels.json')
+      .then(response => response.json())
+      .then(data => {
+        setDestinations(data.travels)
+        setLoading(false)
+      })
+      .catch(error => {
+        console.error('Error loading destinations:', error)
+        setLoading(false)
+      })
+  }, [])
 
   useEffect(() => {
     if (preselected && destinations.some((d) => d.id === preselected)) {
       setSelectedDest(preselected)
     }
-  }, [preselected])
+  }, [preselected, destinations])
 
   const canProceedStep1 = selectedDest !== ""
   const canProceedStep2 = departureDate !== "" && travelers !== ""
@@ -105,9 +107,9 @@ export default function BookingPage() {
             </Link>
             <Link
               href="/chat"
-              className="border border-border text-foreground px-6 py-3 rounded-lg text-sm font-medium hover:border-primary/50 hover:text-primary transition-colors"
+              className="border border-border text-foreground px-4 py-3 rounded-lg text-sm font-medium hover:border-primary/50 hover:text-primary transition-colors"
             >
-              Poser des questions a Chronos
+              Poser des questions à Chronos
             </Link>
           </div>
         </div>
@@ -173,57 +175,75 @@ export default function BookingPage() {
                 </p>
 
                 <div className="flex flex-col gap-4">
-                  {destinations.map((dest) => (
-                    <button
-                      key={dest.id}
-                      onClick={() => setSelectedDest(dest.id)}
-                      className={`flex items-center gap-4 p-4 rounded-xl border transition-all text-left ${
-                        selectedDest === dest.id
-                          ? "border-primary bg-primary/5 shadow-[0_0_20px_-5px_hsl(38,80%,55%,0.15)]"
-                          : "border-border bg-card hover:border-border/80"
-                      }`}
-                    >
-                      <div className="relative w-20 h-20 rounded-lg overflow-hidden shrink-0">
-                        <Image
-                          src={dest.image || "/placeholder.svg"}
-                          alt={dest.title}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <h3 className="font-semibold text-foreground">{dest.title}</h3>
-                          <span className="text-xs text-primary bg-primary/10 px-2 py-0.5 rounded-full">
-                            {dest.period}
-                          </span>
+                  {loading ? (
+                    <div className="space-y-4">
+                      {[1, 2, 3].map((i) => (
+                        <div key={i} className="animate-pulse">
+                          <div className="flex items-center gap-4 p-4 rounded-xl border border-border bg-card">
+                            <div className="w-20 h-20 rounded-lg bg-muted" />
+                            <div className="flex-1 space-y-2">
+                              <div className="h-4 bg-muted rounded w-3/4" />
+                              <div className="h-3 bg-muted rounded w-full" />
+                              <div className="h-3 bg-muted rounded w-2/3" />
+                            </div>
+                          </div>
                         </div>
-                        <p className="text-sm text-muted-foreground line-clamp-1">
-                          {dest.description}
-                        </p>
-                        <div className="flex items-center gap-3 mt-2">
-                          <span className="flex items-center gap-1 text-xs text-muted-foreground">
-                            <Clock className="h-3 w-3" />
-                            {dest.duration}
-                          </span>
-                          <span className="text-xs font-medium text-foreground">
-                            {dest.price.toLocaleString()} TC
-                          </span>
-                        </div>
-                      </div>
-                      <div
-                        className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                      ))}
+                    </div>
+                  ) : (
+                    destinations.map((dest) => (
+                      <button
+                        key={dest.id}
+                        onClick={() => setSelectedDest(dest.id)}
+                        className={`flex items-center gap-4 p-4 rounded-xl border transition-all text-left ${
                           selectedDest === dest.id
-                            ? "border-primary bg-primary"
-                            : "border-muted-foreground/30"
+                            ? "border-primary bg-primary/5 shadow-[0_0_20px_-5px_hsl(38,80%,55%,0.15)]"
+                            : "border-border bg-card hover:border-border/80"
                         }`}
                       >
-                        {selectedDest === dest.id && (
-                          <Check className="h-3 w-3 text-primary-foreground" />
-                        )}
-                      </div>
-                    </button>
-                  ))}
+                        <div className="relative w-20 h-20 rounded-lg overflow-hidden shrink-0">
+                          <Image
+                            src={dest.images[0] || "/placeholder.svg"}
+                            alt={dest.title}
+                            fill
+                            className="object-cover"
+                            loading="lazy"
+                          />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-1">
+                            <h3 className="font-semibold text-foreground">{dest.title}</h3>
+                            <span className="text-xs text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                              {dest.period}
+                            </span>
+                          </div>
+                          <p className="text-sm text-muted-foreground line-clamp-1">
+                            {dest.description}
+                          </p>
+                          <div className="flex items-center gap-3 mt-2">
+                            <span className="flex items-center gap-1 text-xs text-muted-foreground">
+                              <Clock className="h-3 w-3" />
+                              {dest.duration} jours
+                            </span>
+                            <span className="text-xs font-medium text-foreground">
+                              {dest.price.toLocaleString()} TC
+                            </span>
+                          </div>
+                        </div>
+                        <div
+                          className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                            selectedDest === dest.id
+                              ? "border-primary bg-primary"
+                              : "border-muted-foreground/30"
+                          }`}
+                        >
+                          {selectedDest === dest.id && (
+                            <Check className="h-3 w-3 text-primary-foreground" />
+                          )}
+                        </div>
+                      </button>
+                    ))
+                  )}
                 </div>
 
                 <button
@@ -382,10 +402,11 @@ export default function BookingPage() {
                 <>
                   <div className="relative h-32 rounded-lg overflow-hidden mb-4">
                     <Image
-                      src={selectedDestination.image || "/placeholder.svg"}
+                      src={selectedDestination.images[0] || "/placeholder.svg"}
                       alt={selectedDestination.title}
                       fill
                       className="object-cover"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
                     <div className="absolute bottom-3 left-3">
@@ -407,9 +428,9 @@ export default function BookingPage() {
                     <div className="flex items-center justify-between">
                       <span className="flex items-center gap-2 text-muted-foreground">
                         <Clock className="h-3.5 w-3.5" />
-                        Duree
+                        Durée
                       </span>
-                      <span className="text-foreground">{selectedDestination.duration}</span>
+                      <span className="text-foreground">{selectedDestination.duration} jours</span>
                     </div>
                     {departureDate && (
                       <div className="flex items-center justify-between">
