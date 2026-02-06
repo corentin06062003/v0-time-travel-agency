@@ -97,17 +97,17 @@ export function Destinations() {
           {travels.map((travel: Travel, index: number) => (
             <motion.div
               key={travel.id}
-              className="group relative rounded-xl overflow-hidden border border-border bg-card transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_40px_-10px_hsl(38,80%,55%,0.15)]"
+              className="group relative rounded-xl overflow-hidden border border-border bg-card transition-all duration-500 hover:border-primary/40 hover:shadow-[0_0_40px_-10px_hsl(38,80%,55%,0.15)] cursor-pointer"
               onMouseEnter={() => setActiveCard(travel.id)}
               onMouseLeave={() => setActiveCard(null)}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               whileHover={{ scale: 1.02 }}
+              onClick={() => router.push(`/travel/${travel.id}`)}
             >
               {/* Image */}
-              <div className="relative h-64 overflow-hidden cursor-pointer group"
-                   onClick={() => router.push(`/travel/${travel.id}`)}>
+              <div className="relative h-64 overflow-hidden group">
                 <Image
                   src={travel.images[0] || "/placeholder.svg"}
                   alt={travel.title}
@@ -182,6 +182,7 @@ export function Destinations() {
                   <Link
                     href={`/booking?destination=${travel.id}`}
                     className="flex items-center gap-2 bg-secondary text-secondary-foreground px-4 py-2 rounded-lg text-sm hover:bg-primary hover:text-primary-foreground transition-all duration-300 group/btn"
+                    onClick={(e) => e.stopPropagation()}
                   >
                     <Calendar className="h-4 w-4" />
                     Réserver

@@ -15,6 +15,7 @@ interface QuizAnswer {
 
 interface Destination {
   name: string
+  id: string
   period: string
   description: string
   experiences: string[]
@@ -64,6 +65,7 @@ const questions = [
 const destinations: Destination[] = [
   {
     name: "Rome Antique",
+    id: "rome-antique",
     period: "27 av. J.-C. - 476 ap. J.-C.",
     description: "Plongez au cœur de l'Empire romain, entre monuments grandioses et vie culturelle intense.",
     experiences: ["Visite du Colisée", "Forum romain", "Bains publics", "Cirque Maximus"],
@@ -72,6 +74,7 @@ const destinations: Destination[] = [
   },
   {
     name: "Paris Belle Époque",
+    id: "paris-belle-epoque",
     period: "1870-1914",
     description: "Découvrez l'âge d'or parisien, entre effervescence artistique et élégance raffinée.",
     experiences: ["Tour Eiffel", "Cabarets", "Expositions universelles", "Cafés littéraires"],
@@ -80,6 +83,7 @@ const destinations: Destination[] = [
   },
   {
     name: "Égypte des Pharaons",
+    id: "egypte-pharaons",
     period: "3100-30 av. J.-C.",
     description: "Explorez la civilisation égyptienne à son apogée, entre pyramides et mystères anciens.",
     experiences: ["Pyramides de Gizeh", "Vallée des Rois", "Temple de Karnak", "Croisière sur le Nil"],
@@ -88,6 +92,7 @@ const destinations: Destination[] = [
   },
   {
     name: "Florence Renaissance",
+    id: "florence-renaissance",
     period: "1400-1600",
     description: "Immergez-vous dans le berceau de la Renaissance, entre chefs-d'œuvre artistiques et innovation.",
     experiences: ["Galerie des Offices", "Dôme de Florence", "Pont Vecchio", "Ateliers d'artistes"],
@@ -96,6 +101,7 @@ const destinations: Destination[] = [
   },
   {
     name: "Safari Préhistorique",
+    id: "safari-prehistorique",
     period: "2 millions d'années av. J.-C.",
     description: "Observez la faune de la Préhistoire dans son habitat naturel pour une aventure inoubliable.",
     experiences: ["Observation de mammouths", "Chasse primitive", "Grottes préhistoriques", "Survie ancestrale"],
@@ -104,6 +110,7 @@ const destinations: Destination[] = [
   },
   {
     name: "Venise des Doges",
+    id: "venise-doges",
     period: "697-1797",
     description: "Vivez la splendeur de la Séréniss République, entre canaux, palais et raffinement vénitien.",
     experiences: ["Balade en gondole", "Palais des Doges", "Carnaval de Venise", "Îles de la lagune"],
@@ -269,7 +276,7 @@ export default function QuizPage() {
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button asChild size="lg" className="gap-2">
-                    <Link href="/booking">
+                    <Link href={`/booking?destination=${recommendedDestination.id}`}>
                       Réserver ce voyage
                       <ArrowRight className="h-4 w-4" />
                     </Link>

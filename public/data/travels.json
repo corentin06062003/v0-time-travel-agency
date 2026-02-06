@@ -51,7 +51,6 @@
       "images": [
         "/images/paris-1889.jpg",
         "/images/paris-eiffel.jpg",
-        "/images/paris-moulin.jpg",
         "/images/paris-montmartre.jpg"
       ],
       "category": "culture",
@@ -216,8 +215,7 @@
       "images": [
         "/images/athenes.jpg",
         "/images/athenes-parthenon.jpg",
-        "/images/athenes-theatre.jpg",
-        "/images/athenes-agora.jpg"
+        "/images/athenes-theatre.jpg"
       ],
       "category": "culture",
       "difficulty": "modérée",
@@ -230,105 +228,6 @@
         "Tenue grecque antique fournie"
       ],
       "tags": ["culture", "ancient", "urban", "monuments"]
-    },
-    {
-      "id": "viking-scandinavie",
-      "title": "Expédition Viking - Les Conquérants du Nord",
-      "period": "793 - 1066",
-      "description": "Embarquez pour une expédition viking. Naviguez sur des drakkars, participez à des raids et découvrez la culture guerrière des peuples du Nord à l'âge des Vikings.",
-      "price": 5300,
-      "duration": 8,
-      "location": "Scandinavie & Mer du Nord",
-      "highlights": [
-        "Navigation en drakkar",
-        "Participation à un raid commercial",
-        "Fête Viking avec méad et chants",
-        "Apprentissage des runes",
-        "Exploration de villages vikings"
-      ],
-      "images": [
-        "/images/viking.jpg",
-        "/images/viking-drakkar.jpg",
-        "/images/viking-village.jpg",
-        "/images/viking-fete.jpg"
-      ],
-      "category": "adventure",
-      "difficulty": "difficile",
-      "groupSize": "6-10 personnes",
-      "included": [
-        "Transport temporel aller-retour",
-        "Équipement viking complet",
-        "Formation aux techniques de navigation",
-        "Guide expert en culture viking",
-        "Nourriture et boisson vikings"
-      ],
-      "tags": ["adventure", "ancient", "nature", "wildlife"]
-    },
-    {
-      "id": "tokyo-edo",
-      "title": "Tokyo Edo - La Cité des Shoguns",
-      "period": "1603 - 1868",
-      "description": "Plongez dans le Japon féodal sous le shogunat Tokugawa. Découvrez les samouraïs, les geishas et l'art délicat de la période Edo dans une ville en pleine effervescence culturelle.",
-      "price": 4850,
-      "duration": 7,
-      "location": "Edo (Tokyo), Japon",
-      "highlights": [
-        "Rencontre avec des samouraïs",
-        "Soirée dans une maison de thé",
-        "Visite du château d'Edo",
-        "Apprentissage des arts martiaux",
-        "Exploration du quartier des plaisirs"
-      ],
-      "images": [
-        "/images/tokyo-edo.jpg",
-        "/images/tokyo-chateau.jpg",
-        "/images/tokyo-samourai.jpg",
-        "/images/tokyo-maison-the.jpg"
-      ],
-      "category": "culture",
-      "difficulty": "modérée",
-      "groupSize": "8-12 personnes",
-      "included": [
-        "Transport temporel aller-retour",
-        "Hébergement dans une ryokan",
-        "Repas japonais traditionnels",
-        "Cours de calligraphie",
-        "Tenue traditionnelle fournie"
-      ],
-      "tags": ["culture", "modern", "urban", "art"]
-    },
-    {
-      "id": "maya-yucatan",
-      "title": "Civilisation Maya - Les Secrets du Yucatán",
-      "period": "600 - 900 ap. J.-C.",
-      "description": "Explorez la civilisation maya à son apogée. Découvrez les cités-états, assistez à des cérémonies religieuses et explorez les mystérieuses pyramides de la jungle du Yucatán.",
-      "price": 4650,
-      "duration": 8,
-      "location": "Péninsule du Yucatán, Mésoamérique",
-      "highlights": [
-        "Visite de Chichén Itzá",
-        "Cérémonies religieuses mayas",
-        "Exploration de cités perdues",
-        "Apprentissage de l'astronomie maya",
-        "Rencontre avec des prêtres mayas"
-      ],
-      "images": [
-        "/images/maya.jpg",
-        "/images/maya-chichen.jpg",
-        "/images/maya-cite.jpg",
-        "/images/maya-ceremonie.jpg"
-      ],
-      "category": "adventure",
-      "difficulty": "modérée",
-      "groupSize": "6-10 personnes",
-      "included": [
-        "Transport temporel aller-retour",
-        "Hébergement dans une cité maya",
-        "Repas traditionnels mayas",
-        "Guide expert en civilisation maya",
-        "Tenue cérémonielle fournie"
-      ],
-      "tags": ["adventure", "ancient", "nature", "monuments"]
     }
   ]
 }
