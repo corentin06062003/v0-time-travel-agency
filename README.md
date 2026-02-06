@@ -57,6 +57,11 @@ TimeTravel Agency est une plateforme immersive qui permet aux utilisateurs d'exp
 - **Bulle flottante** accessible sur toutes les pages
 - **Design moderne** avec animations d'entrée
 
+### 🧠 Quiz interactif (`/quiz`)
+- **Quiz thématique** sur les époques et destinations
+- **Parcours guidé** avec progression question par question
+- **Résultat final** avec recommandation d'époque
+
 ### 🎨 UI/UX
 - **Animations Framer Motion** : Fade-in progressif, staggered animations
 - **Micro-interactions** : Hover effects, transitions douces
