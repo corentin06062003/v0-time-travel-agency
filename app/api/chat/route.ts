@@ -1,5 +1,10 @@
 import { streamText, convertToModelMessages } from "ai"
-import { openai } from "@ai-sdk/openai"
+import { createGroq } from "@ai-sdk/groq"
+import { openai } from "some-openai-package" // Import openai here
+
+const groq = createGroq({
+  apiKey: process.env.GROQ_API_KEY,
+})
 
 const SYSTEM_PROMPT = `Tu es Chronos, l'assistant IA de TimeTravel Agency, la premiere agence de voyage temporel au monde.
 
@@ -35,10 +40,7 @@ Regles :
 - Tu peux repondre aux questions frequentes sur la securite temporelle, les protocoles de voyage, et les conditions de reservation`
 
 function getModel() {
-  if (process.env.OPENAI_API_KEY) {
-    return openai("gpt-4o-mini")
-  }
-  return "openai/gpt-4o-mini" as const
+  return groq("llama-3.3-70b-versatile")
 }
 
 export async function POST(req: Request) {
@@ -57,13 +59,14 @@ export async function POST(req: Request) {
       error instanceof Error ? error.message : "Unknown error"
 
     if (
-      message.includes("credit card") ||
-      message.includes("customer_verification_required")
+      message.includes("API key") ||
+      message.includes("authentication") ||
+      message.includes("401")
     ) {
       return Response.json(
         {
           error:
-            "Le service IA necessite une configuration. Veuillez ajouter une cle API OpenAI dans les variables d'environnement (OPENAI_API_KEY), ou activer les credits gratuits du AI Gateway Vercel.",
+            "La cle API Groq est invalide ou manquante. Veuillez verifier votre GROQ_API_KEY dans les variables d'environnement.",
         },
         { status: 503 },
       )
