@@ -1,6 +1,5 @@
 import { streamText, convertToModelMessages } from "ai"
 import { createGroq } from "@ai-sdk/groq"
-import { openai } from "some-openai-package" // Import openai here
 
 const groq = createGroq({
   apiKey: process.env.GROQ_API_KEY,
